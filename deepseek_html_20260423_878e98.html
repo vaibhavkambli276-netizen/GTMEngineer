@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Vaibhav Kambli · GTM Engineer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #faf9ff 0%, #f0f1fe 100%);
+      font-family: 'Inter', sans-serif;
+      color: #1B1E2E;
+      line-height: 1.45;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+    }
+
+    :root {
+      --primary: #6851ff;
+      --primary-dark: #4f37e0;
+      --primary-soft: #e8e3ff;
+      --accent-coral: #ff6b4a;
+      --accent-teal: #2acf9e;
+      --card-white: #ffffff;
+      --gray-mid: #6c6f8c;
+      --shadow-sm: 0 24px 48px -12px rgba(0, 0, 0, 0.12);
+      --shadow-hover: 0 32px 48px -16px rgba(104, 81, 255, 0.2);
+    }
+
+    h1, h2, h3, .logo, .stat-number {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1B1E2E 0%, #4f37e0 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .section-subhead {
+      font-size: 1.1rem;
+      color: var(--gray-mid);
+      margin-bottom: 2.5rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(115deg, var(--primary) 0%, var(--accent-coral) 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #2e2f42;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 5rem;
+      background: var(--card-white);
+      border-radius: 2.5rem;
+      padding: 2rem 2.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(104, 81, 255, 0.15);
+    }
+
+    .hero-content {
+      flex: 1.5;
+    }
+
+    .hero-badge {
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      border-radius: 40px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #3e415a;
+      max-width: 550px;
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--primary);
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .hero-stats {
+      flex: 1;
+      background: linear-gradient(125deg, #fafbff, #ffffff);
+      border-radius: 1.5rem;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0 4rem;
+    }
+
+    .project-card {
+      background: var(--card-white);
+      border-radius: 1.8rem;
+      padding: 1.8rem;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(0,0,0,0.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary-soft);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--primary-soft);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 1rem 0;
+    }
+
+    .tag {
+      background: #efeff9;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1f2142;
+    }
+
+    .case-details {
+      margin: 1.2rem 0;
+      list-style: none;
+    }
+
+    .case-details li {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .case-details i {
+      color: var(--accent-teal);
+      width: 20px;
+    }
+
+    .watch-badge {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--primary);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-top: 1px solid #ececff;
+      padding-top: 0.8rem;
+      width: 100%;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      background: white;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+      animation: fadeInUp 0.2s ease;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: #f9f9ff;
+      border-bottom: 1px solid #eaeef5;
+    }
+
+    .modal-header h4 {
+      font-weight: 600;
+      color: #1b1e2e;
+    }
+
+    .close-modal {
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      color: #5f5f7a;
+    }
+
+    .close-modal:hover {
+      color: var(--primary);
+    }
+
+    .modal-body {
+      padding: 1rem;
+      height: 500px;
+      overflow-y: auto;
+      background: #fff;
+    }
+
+    .modal-body iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stack-showcase {
+      background: #0f1222;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      color: white;
+    }
+
+    .stack-showcase h2 {
+      color: white;
+      background: linear-gradient(135deg, #ffffff, #b6abff);
+      background-clip: text;
+    }
+
+    .stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .stack-item {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(2px);
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+    }
+
+    .contact-cta {
+      background: linear-gradient(125deg, #ffffff, #f5f1ff);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 3rem;
+      border: 1px solid var(--primary-soft);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.8rem 0;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #6c6f8c;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 1rem 1.2rem 2rem;
+      }
+      .modal-body {
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">vaibhav<span style="color:#6851ff;">.gtm</span></div>
+    <div class="nav-links">
+      <a href="#work">work</a>
+      <a href="#stack">stack</a>
+      <a href="#contact">contact</a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fa-regular fa-bolt"></i> GTM engineering · signal-based outbound</span>
+      <h1>Vaibhav Kambli · GTM Engineer Portfolio</h1>
+      <p class="hero-desc">I turn noisy data into high-intent workflows — using Clay, Cursor, DeepSeek, and custom AI agents. building zero‑cost systems that feel researched, personal, and impossible to ignore.</p>
+      <div class="btn-group">
+        <a href="#work" class="btn-primary"><i class="fa-regular fa-eye"></i> case studies</a>
+        <a href="#contact" class="btn-outline"><i class="fa-regular fa-message"></i> reach out</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-number">5+</div><div>GTM workflows</div></div>
+      <div class="stat-item"><div class="stat-number">100%</div><div>AI‑augmented</div></div>
+    </div>
+  </div>
+
+  <div id="work">
+    <h2>· signal-led GTM ·</h2>
+    <div class="section-subhead">end‑to‑end engineering: from reverse hiring signals to negative‑review personalization — <strong>click any card to watch the full breakdown (video / LinkedIn post)</strong></div>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid">
+    <!-- case 1: reverse hiring signals -->
+    <div class="project-card" data-video-id="7452252117400117248">
+      <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>reverse hiring signals</h3>
+      <div class="project-tags"><span class="tag">clay</span><span class="tag">linkedin ads</span><span class="tag">lead intelligence</span></div>
+      <ul class="case-details">
+        <li><i class="fa-regular fa-circle-check"></i> targeted IT companies with 11–50 employees + $1M–$25M revenue</li>
+        <li><i class="fa-regular fa-circle-check"></i> reverse hiring signals: new VP Sales hires → revenue pain</li>
+        <li><i class="fa-regular fa-circle-check"></i> enriched with funding rounds, job openings, linkedin ads data</li>
+        <li><i class="fa-regular fa-circle-check"></i> agent‑driven: top5 problems, employee achievements + twitter insights</li>
+      </ul>
+      <div class="watch-badge"><i class="fa-regular fa-circle-play"></i> click to watch LinkedIn video + full breakdown</div>
+    </div>
+    <!-- case 2: zero‑cost workflow -->
+    <div class="project-card" data-video-id="7449813176503820288">
+      <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+      <h3>zero‑cost workflow</h3>
+      <div class="project-tags"><span class="tag">cursor</span><span class="tag">deepseek</span><span class="tag">exa.ai</span></div>
+      <ul class="case-details">
+        <li><i class="fa-regular fa-circle-check"></i> built own GTM stack instead of paying for expensive tools</li>
+        <li><i class="fa-regular fa-circle-check"></i> exa.ai → discover 50 highly relevant niche companies</li>
+        <li><i class="fa-regular fa-circle-check"></i> deepseek → enrich & structure data + key employees</li>
+        <li><i class="fa-regular fa-circle-check"></i> cursor → full automation, zero credits burned</li>
+      </ul>
+      <div class="watch-badge"><i class="fa-regular fa-circle-play"></i> click to watch LinkedIn video + live demo</div>
+    </div>
+    <!-- case 3: investor cold outreach -->
+    <div class="project-card" data-video-id="7447227693135327306">
+      <div class="card-icon"><i class="fa-solid fa-podcast"></i></div>
+      <h3>investor cold outreach</h3>
+      <div class="project-tags"><span class="tag">clay</span><span class="tag">hubspot</span><span class="tag">deep personalization</span></div>
+      <ul class="case-details">
+        <li><i class="fa-regular fa-circle-check"></i> targeted hedge fund managers, private investors (US/UK/CA)</li>
+        <li><i class="fa-regular fa-circle-check"></i> data enrichment: bio, news, network, linkedin & twitter activity</li>
+        <li><i class="fa-regular fa-circle-check"></i> transparent angle: “just starting out” boosted authenticity</li>
+      </ul>
+      <div class="watch-badge"><i class="fa-regular fa-circle-play"></i> click to watch LinkedIn video + results</div>
+    </div>
+    <!-- case 4: natural ingredient signals -->
+    <div class="project-card" data-video-id="7444631820715073536">
+      <div class="card-icon"><i class="fa-solid fa-leaf"></i></div>
+      <h3>natural ingredient signals</h3>
+      <div class="project-tags"><span class="tag">clay</span><span class="tag">job post intelligence</span><span class="tag">press release mining</span></div>
+      <ul class="case-details">
+        <li><i class="fa-regular fa-circle-check"></i> targeting US food & bev manufacturers seeking natural ingredient suppliers</li>
+        <li><i class="fa-regular fa-circle-check"></i> job openings: formulation scientists, R&D, clean‑label procurement</li>
+        <li><i class="fa-regular fa-circle-check"></i> press releases: removing FD&C dyes → natural colors</li>
+      </ul>
+      <div class="watch-badge"><i class="fa-regular fa-circle-play"></i> click to watch LinkedIn video + methodology</div>
+    </div>
+    <!-- case 5: review‑powered personalization -->
+    <div class="project-card" data-video-id="7452986036126826497">
+      <div class="card-icon"><i class="fa-regular fa-message"></i></div>
+      <h3>review‑powered personalization</h3>
+      <div class="project-tags"><span class="tag">clay</span><span class="tag">api scraping</span><span class="tag">empathy-led copy</span></div>
+      <ul class="case-details">
+        <li><i class="fa-regular fa-circle-check"></i> scraped auto dealers → extracted genuine negative reviews</li>
+        <li><i class="fa-regular fa-circle-check"></i> context‑based subject lines: “customers saying you don’t respond to enquiries”</li>
+        <li><i class="fa-regular fa-circle-check"></i> two email variations: direct + consultative approach</li>
+      </ul>
+      <div class="watch-badge"><i class="fa-regular fa-circle-play"></i> click to watch LinkedIn video + email walkthrough</div>
+    </div>
+  </div>
+
+  <!-- modal -->
+  <div id="linkedinModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4><i class="fa-brands fa-linkedin"></i> LinkedIn case study</h4>
+        <button class="close-modal" id="closeModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="linkedinIframe" src="" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#e9ebff; border-radius: 28px; padding: 1.8rem; margin: 1rem 0;">
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-start;">
+      <div><i class="fa-regular fa-lightbulb" style="font-size: 2rem; color: #4f37e0;"></i></div>
+      <div><strong style="font-size: 1.2rem;">GTM philosophy:</strong> I don’t start with leads — I start with <strong>signals</strong>. leadership changes, growth indicators, public job openings, review sentiment, and press activity → tailor outreach that solves actual problems, not generic pain points.</div>
+    </div>
+  </div>
+
+  <div id="stack" class="stack-showcase">
+    <h2>⚙️ engineering toolkit · built for performance & zero‑waste outbound</h2>
+    <div class="stack-grid">
+      <span class="stack-item"><i class="fa-brands fa-python"></i> Cursor (AI IDE)</span>
+      <span class="stack-item"><i class="fa-regular fa-database"></i> DeepSeek</span>
+      <span class="stack-item"><i class="fa-regular fa-magnifying-glass"></i> Exa.ai</span>
+      <span class="stack-item"><i class="fa-regular fa-cube"></i> Clay</span>
+      <span class="stack-item"><i class="fa-regular fa-code"></i> custom automations</span>
+    </div>
+    <p style="margin-top: 1rem; opacity: 0.85;">Every workflow is built with scalability, cost‑efficiency and relevance in mind. I combine AI agents, scraping logic, and enrichment layers to build <strong>context‑first campaigns</strong> — no credits burned, just engineering.</p>
+  </div>
+
+  <div id="contact" class="contact-cta">
+    <h2>let’s build signal‑first GTM 🚀</h2>
+    <p style="max-width: 550px; margin: 0.6rem auto; color: #3e415a;">looking for a GTM engineer who automates personalization at scale? I turn raw data into revenue conversations — from reverse‑hiring signals to negative‑review outreach.</p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/vaibhav-kambli-084301115" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="mailto:vaibhav@gtmengineer.com"><i class="fa-regular fa-envelope"></i> vaibhav@gtmengineer.com</a>
+      <a href="#"><i class="fa-regular fa-message"></i> calendly (demo workflow)</a>
+    </div>
+    <div style="font-size: 0.85rem; background: white; width: fit-content; margin: 1rem auto; padding: 0.5rem 1rem; border-radius: 60px;">
+      <i class="fa-regular fa-terminal"></i> “GTM engineering is making personalization inevitable, not optional.”
+    </div>
+  </div>
+  <footer>
+    <span>GTM Engineer Portfolio — click any case study to watch the original LinkedIn video + deep dive</span>
+  </footer>
+</div>
+
+<script>
+  function getEmbedUrl(activityId) {
+    return `https://www.linkedin.com/embed/feed/update/urn:li:share:${activityId}`;
+  }
+
+  const modal = document.getElementById('linkedinModal');
+  const iframe = document.getElementById('linkedinIframe');
+  const closeBtn = document.getElementById('closeModalBtn');
+
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      const videoId = card.getAttribute('data-video-id');
+      if (videoId) {
+        iframe.src = getEmbedUrl(videoId);
+        modal.style.display = 'flex';
+      }
+    });
+  });
+
+  function closeModal() {
+    modal.style.display = 'none';
+    iframe.src = '';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+</script>
+</body>
+</html>

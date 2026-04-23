@@ -565,35 +565,25 @@
 </div>
 
 <script>
-  function getEmbedUrl(activityId) {
-    return `https://www.linkedin.com/embed/feed/update/urn:li:share:${activityId}`;
-  }
-
-  const modal = document.getElementById('linkedinModal');
-  const iframe = document.getElementById('linkedinIframe');
-  const closeBtn = document.getElementById('closeModalBtn');
+  // Map each video-id (data-video-id) to the real LinkedIn post URL
+  const linkedinUrls = {
+    '7452252117400117248': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_gtmengineering-salessignals-revenuegrowth-activity-7452252117400117248-v71U',
+    '7449813176503820288': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_gtm-ai-sales-activity-7449813176503820288-7PsW',
+    '7447227693135327306': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_coldemail-emailmarketing-coldoutreach-activity-7447227693135327306-08as',
+    '7444631820715073536': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_gtmengineering-revops-salesops-activity-7444631820715073536--WDT',
+    '7452986036126826497': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_leadgeneration-coldemail-b2bmarketing-activity-7452986036126826497-b6Hh'
+  };
 
   const cards = document.querySelectorAll('.project-card');
   cards.forEach(card => {
     card.addEventListener('click', (e) => {
+      // Ignore if clicking on a link inside the card (like an email link)
       if (e.target.closest('a')) return;
       const videoId = card.getAttribute('data-video-id');
-      if (videoId) {
-        iframe.src = getEmbedUrl(videoId);
-        modal.style.display = 'flex';
+      const url = linkedinUrls[videoId];
+      if (url) {
+        window.open(url, '_blank');  // Opens LinkedIn post in a new tab
       }
     });
   });
-
-  function closeModal() {
-    modal.style.display = 'none';
-    iframe.src = '';
-  }
-
-  closeBtn.addEventListener('click', closeModal);
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
 </script>
-</body>
-</html>

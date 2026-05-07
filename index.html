@@ -440,7 +440,7 @@
       </div>
     </div>
     <div class="hero-stats">
-      <div class="stat-item"><div class="stat-number">5+</div><div>GTM workflows</div></div>
+      <div class="stat-item"><div class="stat-number">6+</div><div>GTM workflows</div></div>
       <div class="stat-item"><div class="stat-number">100%</div><div>AI‑augmented</div></div>
     </div>
   </div>
@@ -513,9 +513,23 @@
       </ul>
       <div class="watch-badge"><i class="fa-regular fa-circle-play"></i> click to watch LinkedIn video + email walkthrough</div>
     </div>
+    <!-- case 6: Berlin pharmacy intelligence (new, based on weak-spot signals) -->
+    <div class="project-card" data-video-id="7456282782068072448">
+      <div class="card-icon"><i class="fa-solid fa-location-dot"></i></div>
+      <h3>Berlin pharmacy intelligence</h3>
+      <div class="project-tags"><span class="tag">clay</span><span class="tag">revenue signals</span><span class="tag">weak‑spot mining</span><span class="tag">risk scoring</span></div>
+      <ul class="case-details">
+        <li><i class="fa-regular fa-circle-check"></i> location: Berlin + founding year + ad spend (Google/Meta)</li>
+        <li><i class="fa-regular fa-circle-check"></i> key signal #1: recent senior‑level hire (growth or pivot)</li>
+        <li><i class="fa-regular fa-circle-check"></i> key signal #2: large order received + company revenue​</li>
+        <li><i class="fa-regular fa-circle-check"></i> bonus signal: known data leak? (security risk = opportunity)</li>
+        <li><i class="fa-regular fa-circle-check"></i> scored every prospect based on these weak spots → revenue intelligence</li>
+      </ul>
+      <div class="watch-badge"><i class="fa-regular fa-circle-play"></i> click to watch Loom breakdown (Clay workflow)</div>
+    </div>
   </div>
 
-  <!-- modal -->
+  <!-- modal (kept for compatibility, though we now open URLs directly) -->
   <div id="linkedinModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -529,10 +543,8 @@
   </div>
 
   <div style="background:#e9ebff; border-radius: 28px; padding: 1.8rem; margin: 1rem 0;">
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-start;">
-      <div><i class="fa-regular fa-lightbulb" style="font-size: 2rem; color: #4f37e0;"></i></div>
-      <div><strong style="font-size: 1.2rem;">GTM philosophy:</strong> I don’t start with leads — I start with <strong>signals</strong>. leadership changes, growth indicators, public job openings, review sentiment, and press activity → tailor outreach that solves actual problems, not generic pain points.</div>
-    </div>
+    <div><i class="fa-regular fa-lightbulb" style="font-size: 2rem; color: #4f37e0;"></i></div>
+    <div><strong style="font-size: 1.2rem;">GTM philosophy:</strong> I don’t start with leads — I start with <strong>signals</strong>. leadership changes, growth indicators, public job openings, review sentiment, and press activity → tailor outreach that solves actual problems, not generic pain points.</div>
   </div>
 
   <div id="stack" class="stack-showcase">
@@ -555,10 +567,9 @@
       <a href="mailto:vaibhavkambli656@gmail.com"><i class="fa-regular fa-envelope"></i> vaibhavkambli656@gmail.com</a>
       <a href="https://calendly.com/vaibhav100/new-meeting" target="_blank"><i class="fa-regular fa-message"></i> calendly (demo workflow)</a>
     </div>
-</div>
-    <div style="font-size: 0.85rem; background: white; width: fit-content; margin: 1rem auto; padding: 0.5rem 1rem; border-radius: 60px;">
-      <i class="fa-regular fa-terminal"></i> “GTM engineering is making personalization inevitable, not optional.”
-    </div>
+  </div>
+  <div style="font-size: 0.85rem; background: white; width: fit-content; margin: 1rem auto; padding: 0.5rem 1rem; border-radius: 60px;">
+    <i class="fa-regular fa-terminal"></i> “GTM engineering is making personalization inevitable, not optional.”
   </div>
   <footer>
     <span>GTM Engineer Portfolio — click any case study to watch the original LinkedIn video + deep dive</span>
@@ -566,25 +577,27 @@
 </div>
 
 <script>
-  // Map each video-id (data-video-id) to the real LinkedIn post URL
+  // Map each video-id to the real LinkedIn post URL
   const linkedinUrls = {
     '7452252117400117248': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_gtmengineering-salessignals-revenuegrowth-activity-7452252117400117248-v71U',
     '7449813176503820288': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_gtm-ai-sales-activity-7449813176503820288-7PsW',
     '7447227693135327306': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_coldemail-emailmarketing-coldoutreach-activity-7447227693135327306-08as',
     '7444631820715073536': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_gtmengineering-revops-salesops-activity-7444631820715073536--WDT',
-    '7452986036126826497': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_leadgeneration-coldemail-b2bmarketing-activity-7452986036126826497-b6Hh'
+    '7452986036126826497': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_leadgeneration-coldemail-b2bmarketing-activity-7452986036126826497-b6Hh',
+    '7456282782068072448': 'https://www.linkedin.com/posts/vaibhav-kambli-084301115_clay-clayai-salesprospecting-ugcPost-7456282782068072448-OTyP?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAByy-yQBht4uokw9cW3liAmavbaimv-Jd58'
   };
 
   const cards = document.querySelectorAll('.project-card');
   cards.forEach(card => {
     card.addEventListener('click', (e) => {
-      // Ignore if clicking on a link inside the card (like an email link)
       if (e.target.closest('a')) return;
       const videoId = card.getAttribute('data-video-id');
       const url = linkedinUrls[videoId];
       if (url) {
-        window.open(url, '_blank');  // Opens LinkedIn post in a new tab
+        window.open(url, '_blank');
       }
     });
   });
 </script>
+</body>
+</html>
